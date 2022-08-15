@@ -1,0 +1,827 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
+    
+    
+      
+        <title>DataStore - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#datastore" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DataStore
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Hello
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          DataStore
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        DataStore
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preview-usage" class="md-nav__link">
+    Preview Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-application" class="md-nav__link">
+    Sample Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preview-usage" class="md-nav__link">
+    Preview Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-application" class="md-nav__link">
+    Sample Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="datastore">DataStore</h1>
+<p>DataStore is an implementation of the Repository pattern in Android. This library allows async loading and caching data from different sources (API, databases).</p>
+<h2 id="basics">Basics</h2>
+<p>A Store is composed by two main objects, a fetcher, and a cache.
+* <strong>Fetcher</strong>: In charge of calling the API and getting the result in the form of a <code>FetcherResult&lt;Entity&gt;</code>.
+* <strong>Cache</strong>: In charge of storing the result locally and making queries, usually backed by a local database.</p>
+<h2 id="preview-usage">Preview Usage</h2>
+<p>After you have configured your Store, you will be able to do from your ViewModel:</p>
+<pre><code class="language-kotlin">val peopleStore = PeopleStore(viewModelScope)
+viewModelScope.launch {
+    peopleStore.stream(refresh = true).collect { result -&gt;
+        Log.d(TAG, &quot;Hello ${result.value.name}&quot;)
+        uiState.value = result.value
+  }
+}
+</code></pre>
+<p>This example will fetch a People list from an API, then store it in a local database and listen reactively for updates on that list.</p>
+<h2 id="sample-application">Sample Application</h2>
+<p>You can see the features working cloning this repository and running the app project.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Handles caching of fetched data automatically.</li>
+<li>Allows listening to changes on the cache and making queries to single values.</li>
+<li>It is built on coroutines.</li>
+<li>Allows the integration of different fetcher sources and libraries.</li>
+<li>Includes support for caches based on Room and Realm libraries but you can plug in other ones too.</li>
+<li>Allows configuration of custom database queries (like DAOs)</li>
+<li>Allows per-request cache expiration configuration.</li>
+<li>Implements a way to limit multiple repeated calls to the same API.</li>
+<li>Implements throttling on API errors. You can be notified if throttling is activated and show proper error messaging in the UI.</li>
+<li>Implements CRUDStores with a very simple interface to make create, read, update and delete operations over APIs and reflect the state in the local cache.</li>
+</ul>
+<h1 id="using-datastore">Using DataStore</h1>
+<h2 id="installation">Installation</h2>
+<p>This software is still in beta and it is not available in any repository yet.</p>
+<h2 id="1-defining-your-data-classes">1. Defining your data classes</h2>
+<p>The Store will be in charge of fetching data from the API and caching the data on a local repository (database). You can define data classes for holding the information parsed from the API, for example with GSon or Moshi libraries, and also you can define data classes for the data which is going to be stored in the database.</p>
+<p>You can either define different data classes for API and Database or use the same definition, depending of your needs. In the following examples we are going to use the same entity class for simplicity.</p>
+<p>Here is a Room entity.</p>
+<pre><code class="language-kotlin">@Entity(tableName = &quot;people&quot;)
+data class People(
+  @PrimaryKey var id: String = &quot;&quot;,
+  @ColumnInfo(name = &quot;name&quot;) var name: String? = null,
+  @ColumnInfo(name = &quot;height&quot;) var height: String? = null,
+  @ColumnInfo(name = &quot;mass&quot;) var mass: String? = null,
+  @ColumnInfo(name = &quot;gender&quot;) var gender: String? = null,
+  @ColumnInfo(name = &quot;url&quot;) var url: String? = null,
+)
+</code></pre>
+<h2 id="2-creating-a-store">2. Creating a Store</h2>
+<p>We have few base classes you can use for creating an Store:</p>
+<ul>
+<li><code>StoreImpl&lt;K: Any, I: Any, T: Any&gt;</code> is the main implementation, it requires you to provide K a key for the request, I the class to be used by the fetcher and T the class to be used by the cache.</li>
+<li><code>SimpleStoreImpl</code> is a helper class where I = T, we are going to be using the same data class for fetching and storing.</li>
+<li><code>NoKeySimpleStore</code> is a <code>SimpleStoreImpl</code> where the Key is NoKey. Please read the Key section for more information on Keys.</li>
+</ul>
+<p>For example:</p>
+<pre><code class="language-kotlin">class PeopleStore: NoKeySimpleStore&lt;List&lt;People&gt;&gt;(
+    fetcher = PeopleFetcher(),
+    cache = PeopleCache()) {
+    ...
+}
+</code></pre>
+<p>Defines a store which will fetch using a fetcher based on the entity People, and it will cache it in a database using the same Entity.</p>
+<p>As an alternative we also provide a functional builder for creating the store:</p>
+<pre><code class="language-kotlin">fun providePersonStore(): Store&lt;Key, People&gt; {
+    return SimpleStoreBuilder.from(
+        fetcher = LimitedFetcher.of({ key -&gt;
+            FetcherResult.Data(provideStarWarsService().getPerson(key.id))
+        }),
+        cache = SampleApplication.roomDb.personCache()
+    ).build()
+}
+</code></pre>
+<h2 id="3-define-a-key">3. Define a Key.</h2>
+<p>A <code>Key</code> is a parametric data class used to identify the API request operation. This <code>Key</code> can be any class with a <code>toString</code> implementation. Its fields are used to provide parameters to the API and it is also used as a unique identifier for each API Request, so we can avoid multiple repeated calls.</p>
+<p>In case our endpoint requires a parameter id, we can do:</p>
+<pre><code class="language-kotlin">    data class Key(val id: String)
+</code></pre>
+<p>In case you need to fetch a list of entities without any parameters, or there is no field which could identify the request, you can use an existing <code>NoKey</code> implementation instead of creating your own.
+This key should be referenced in the generic parameter K of the store definition. For example: <code>SimpleStoreImpl&lt;PeopleStore.Key, People&gt;</code>.</p>
+<h2 id="4-implement-the-fetcher">4. Implement the Fetcher</h2>
+<p>The fetcher fetches data from an API and returns a FetcherResults.</p>
+<pre><code class="language-kotlin">LimitedFetcher.of({ key -&gt;
+    FetcherResult.Data(provideStarWarsService().getPerson(key.id).apply { parseId() })
+})
+</code></pre>
+<p>In this example <code>provideStarWarsService()</code> provides the retrofit service already configured.</p>
+<p>There is also a useful subclass if you want to build Retrofit services using a <code>RetrofitServiceProvider</code> (here <code>RetrofitManager</code>).</p>
+<pre><code class="language-kotlin">class PeopleFetcher: RetrofitFetcher&lt;NoKey, List&lt;People&gt;, StarWarsService&gt;(StarWarsService::class.java, RetrofitManager) {
+    override suspend fun fetch(key: NoKey, service: StarWarsService): FetcherResult&lt;List&lt;People&gt;&gt; {
+        val people = service.getPeople()
+        // Make any changes to the entities before caching them
+        return FetcherResult.Data(people.results)
+    }
+}
+</code></pre>
+<p>You can also use other libraries to fetch data, you just need to make the call in the fetch function or override and return the <code>FetcherResult</code>.
+- <code>RetrofitManager</code> is a <code>RetrofitServiceProvider</code> implementation that manages the creation of the retrofit service.
+- <code>StarWarsService</code> is a Retrofit service definition class.</p>
+<h2 id="5-implement-the-cache">5. Implement the Cache</h2>
+<h3 id="using-room">Using Room</h3>
+<p>We have provided base DAOs for using with Room:</p>
+<ul>
+<li><code>RoomListCache</code> and <code>SimpleRoomListCache</code>, stores a list of entities.</li>
+<li><code>RoomCache</code> and <code>SimpleRoomCache</code> stores individual objects.</li>
+</ul>
+<p>For example if we want to store a list of People we can do:</p>
+<pre><code class="language-kotlin">@Dao
+abstract class PeopleCache: SimpleRoomListCache&lt;NoKey, People&gt;(&quot;people&quot;, SampleApplication.roomDb) {
+    override fun query(key: NoKey): String = &quot;&quot;
+}
+</code></pre>
+<p>The <code>query</code> is the filter to be used to retrieve the cached data which has been stored after the API call. It generally matches the parameters sent to the API.
+For example if we are fetching an entity by id, our Cache class will look like this one:</p>
+<pre><code class="language-kotlin">@Dao
+abstract class PersonCache: SimpleRoomCache&lt;Key, People&gt;(&quot;people&quot;, SampleApplication.roomDb) {
+    override fun query(key: Key): String = &quot;id = ${key.id}&quot;
+}
+</code></pre>
+<p>All created DAOs automatically generate the required methods for making it work with the Store, but you can also add your own methods for using the cache directly as a regular Room DAO.</p>
+<p>The created DAOs should be connected with your Room Database implementation, for example:</p>
+<pre><code class="language-kotlin">@Database(entities = [People::class], version = 1)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun peopleCache(): RoomPeopleStore.PeopleCache
+    abstract fun personCache(): RoomPersonStore.PersonCache
+}
+</code></pre>
+<p>and you need to provide the DAO as the cache in the Store:</p>
+<pre><code class="language-kotlin">class RoomPersonStore: SimpleStoreImpl&lt;RoomPersonStore.Key, People&gt;(
+    fetcher = PersonFetcher(),
+    cache = SampleApplication.roomDb.personCache()
+)
+</code></pre>
+<p>Please refer to the Room implementation for more details on the Database definition.</p>
+<h3 id="using-realm-database">Using Realm database</h3>
+<p>In case we are using <code>Realm</code> we can use:</p>
+<pre><code class="language-kotlin">class PeopleCache: SimpleRealmListCache&lt;NoKey, People&gt;(People::class.java) {
+    override fun query(key: NoKey): (query: RealmQuery&lt;People&gt;) -&gt; Unit = { }
+}
+</code></pre>
+<p>The <code>query</code> is the filter to be used to retrieve the cached data which has been stored after the API call. It generally matches the parameters sent to the API.
+For example if we are fetching an entity by id, our Cache class will look like this one:</p>
+<pre><code class="language-kotlin">class PersonCache: SimpleRealmCache&lt;Key, People&gt;(People::class.java) {
+    override fun query(key: Key): (query: RealmQuery&lt;People&gt;) -&gt; Unit = {
+ it.equalTo(&quot;id&quot;, key.id)
+    }
+}
+</code></pre>
+<p>Optionally you can provide a <code>storeInRealm</code> which implements a custom method to persist to the Realm cache.</p>
+<pre><code class="language-kotlin">class PersonCache: SimpleRealmCache&lt;Key, People&gt;(People::class.java) {
+    override fun query(key: Key): (query: RealmQuery&lt;People&gt;) -&gt; Unit = { it.equalTo(&quot;id&quot;, key.id) }
+  override fun storeInRealm(key: Key, bgRealm: Realm, entity: People) { bgRealm.copyToRealmOrUpdate(entity) // Custom code }
+}
+</code></pre>
+<h2 id="6-using-the-store">6. Using the Store</h2>
+<p>These are the main methods for using the Store we just created:</p>
+<h3 id="instancing-your-store">Instancing your Store</h3>
+<pre><code class="language-kotlin">val peopleStore = PeopleStore() // or injected using DI
+</code></pre>
+<p>All operation with the store are usually tied to a scope, we can use the viewModelScope for example to launch a coroutine that listens for the incoming data.</p>
+<pre><code class="language-kotlin">viewModelScope.launch {
+    val response = personStore.fetch(RealmPersonStore.Key(&quot;1&quot;)) 
+    ...
+}
+</code></pre>
+<p>With some databases like Realm we should close the opened resources when we are done with using the data. We have provided some extension functions for closing automatically the Realm instances.</p>
+<pre><code class="language-kotlin">viewModelScope.launch(personStore) {
+    val response = personStore.fetch(RealmPersonStore.Key(&quot;1&quot;))
+    ...
+}
+</code></pre>
+<p>Here in the launch we provide the store instance and it will close itself once the coroutine job is cancelled (finished).
+As an alternative, we have an additional method to close many stores.</p>
+<pre><code class="language-kotlin">viewModelScope.launch {
+    ... (use peopleStore and planetStore)
+}.autoClose(peopleStore, planetStore)
+</code></pre>
+<h3 id="responses">Responses</h3>
+<p>All responses coming from the store are based on StoreResponse classes. The subclasses are:
+| StoreResponse | Description |
+|---------------|-------------|
+| Data        | When the request was successful it returns the parsed objects |
+| Error      | It is returned when there was a network or parsing error, includes the exception that generated it. Please note Store will not throw the exception |
+| NoData        | When there is no data returned |</p>
+<h3 id="stream-data">Stream data</h3>
+<p>The <code>stream</code> method does the following:
+1. Checks the cache looking for any cached data, if there is any, it is emitted immediately.
+2. If the <code>refresh</code> parameter is <code>true</code>, if calls the Fetcher for new data from the API and caches them. Then it will emit the new data. If cached data existed before the fetch, you will receive <strong>two emissions</strong>: one for the previously cached data and another one for the new data after the fetch has completed.
+3. If initially there was no data on the cache, it performs the API call. Then its result gets stored in the cache and emitted to the client.
+4. Stream keeps listening and emitting any update in the cached data.</p>
+<p>For example, from your ViewModel</p>
+<pre><code class="language-kotlin">viewModelScope.launch {
+    peopleStore.stream(refresh = true).collect { result -&gt;
+        when (result) {
+            is StoreResponse.Data -&gt; // Here you send it to the UI
+            is StoreResponse.Error -&gt; // You can show an error 
+            else -&gt; // You can also handle the NoData showing an error 
+        }
+    }
+}
+</code></pre>
+<p><code>stream</code> returns a <code>Flow</code>, and it can be combined and processed like any other <code>Flow</code>.</p>
+<p>You can also add <code>.map { it.requireData() }</code> in case you want the errors to be thrown and handled in a different way.</p>
+<h3 id="making-an-api-call-directly">Making an API call directly</h3>
+<p>The <code>fetch</code> method makes an API call, caches the result and then it returns the new data. It does not check the cache for any previously existing data.</p>
+<pre><code class="language-kotlin">viewModelScope.launch {
+    val response = personStore.fetch(PersonStore.Key(&quot;1&quot;))
+    Log.d(TAG, &quot;Fetch response: ${response.value}&quot;)
+}
+</code></pre>
+<h3 id="getting-the-data-from-cache-no-api">Getting the data from cache (no API)</h3>
+<p>The <code>get</code> method gets the data from the cache, usually used in places when you know the data should be already cached. If there is no data in the cache, it automatically tries to fetch the data from API. <code>get</code> is a suspend function and it does not keep listening for changes, it returns the current status of cached data.</p>
+<pre><code class="language-kotlin">viewModelScope.launch {
+    val response = personStore.get(RoomPersonStore.Key(&quot;1&quot;))
+}
+</code></pre>
+<h3 id="summary">Summary</h3>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stream</td>
+<td>Gets the data first from the cache, then from the API and listens for cache updates. It usually emits twice or more times (old and new data)</td>
+</tr>
+<tr>
+<td>fetch</td>
+<td>Gets the data from the API and caches it.</td>
+</tr>
+<tr>
+<td>get</td>
+<td>Gets the data from the cache. It does not listen for updates.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="error-handling">Error handling</h3>
+<p>You can detect errors in different ways:</p>
+<pre><code class="language-kotlin">viewModelScope.launch {
+  val result = personStore.fetch(RoomPersonStore.Key(&quot;1&quot;))
+    when (result) {
+        is StoreResponse.Data -&gt; // UI work
+        is StoreResponse.Error -&gt; // Handle the error here
+        else -&gt; {}
+    }
+}
+</code></pre>
+<p>Another alternative is using the catch method after a <code>requireData()</code> call.</p>
+<pre><code class="language-kotlin">viewModelScope.launch {
+  personStore.stream(RoomPersonStore.Key(&quot;1&quot;), refresh = true)
+        .map { it.requireData() }
+        .catch { /* Error handling */ }
+        .collect { result -&gt; /* UI work */ }
+}
+</code></pre>
+<h2 id="staleness-settings">Staleness Settings</h2>
+<p>When we are calling the API to fetch a list of resources, we usually perform a GET call and the returned items are stored in the cache. If there are entities that were deleted in the backend, the API response will not contain them anymore, and the cache will still have them stored -and they will appear in local cache queries-. In order to sync the data and delete the cache items properly we have different strategies.</p>
+<p>The staleness strategy is configured in the Cache. For example using Room:</p>
+<pre><code class="language-kotlin">@Dao
+abstract class PeopleCache: RoomListCache&lt;NoKey, People&gt;(&quot;people&quot;, SampleApplication.roomDb,
+  stalenessPolicy = DeleteAllNotInFetchStalenessPolicy { people -&gt; people.id } // Example of staleness settings.
+) {
+    override fun query(key: NoKey): String = &quot;&quot;
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>stalenessPolicy</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DoNotExpireStalenessPolicy</td>
+<td>Avoids calling any DELETE on the database when new data arrives. No data is deleted, only updates are performed.</td>
+</tr>
+<tr>
+<td>DeleteAllStalenessPolicy</td>
+<td>Calls DELETE doing a query using the query method of the Cache.</td>
+</tr>
+<tr>
+<td>DeleteAllNotInFetchStalenessPolicy</td>
+<td>Calls DELETE on all database rows which are not in the API response. You should provide a function which indicates a way to compare the old and new items, usually a primary key.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="avoiding-multiple-repeated-calls">Avoiding multiple repeated calls</h2>
+<p>It is very common in big applications to request the same information from many different locations. In order to avoid doing repeated API calls the <code>Store</code> implements a <code>RateLimiter</code>. </p>
+<p>The limiter will allow the first call, and then any subsequent call inside a time span provided will not be executed. If the second call happens before the completion of the first call, that second call will wait for the result of the first one and it will return the same value for both. If the second call happens after the first call has arrived, a cached result will be returned instead until the time provided in the limiter has elapsed. Once the time has elapsed the store is able to call the API again.</p>
+<p>It is available a <code>LimitedFetcher</code> and provides a way to define a <code>rateLimitPolicy</code>:</p>
+<pre><code class="language-kotlin">fun providePostsStore(): SimpleStoreImpl&lt;NoKey, List&lt;Post&gt;&gt; {
+    return SimpleStoreBuilder.from(
+        fetcher = LimitedFetcher.of(
+            fetch = { FetcherResult.Data(provideService().getPosts()) }, 
+            rateLimitPolicy = RateLimitPolicy(10, TimeUnit.SECONDS)
+        ),
+        cache = SampleApplication.roomDb.postsCache()
+    ).build() as SimpleStoreImpl
+}
+</code></pre>
+<p>Similarly, if you are inheriting from <code>RetrofitFetcher</code> you can provide the limiter settings in the constructor.</p>
+<pre><code class="language-kotlin">    class PlayerFetcher: RetrofitFetcher&lt;NoKey, List&lt;Player&gt;, RetrofitTeamService&gt;(
+        serviceClass = RetrofitPlayerService::class.java,
+        rateLimitPolicy = RateLimitPolicy(1, TimeUnit.MINUTES)) {
+</code></pre>
+<p>The default implementation is <code>RateLimitPolicy(5, TimeUnit.SECONDS)</code></p>
+<table>
+<thead>
+<tr>
+<th>rateLimitPolicy</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RateLimitPolicy</td>
+<td>It lets you define a timeout and time unit. The first time you make an API it will proceed, if you make a subsequent call inside this timeout period, it will NOT make an API call. Once the time has passed the timeout threshold, the next call will go to the API again with the same logic. Example: <code>RateLimitPolicy(10, TimeUnit.SECONDS)</code></td>
+</tr>
+<tr>
+<td>FetchOnlyOnce</td>
+<td>It calls the API only once in the app lifetime. Please note if you kill the app, this strategy will fetch again.</td>
+</tr>
+<tr>
+<td>FetchAlways</td>
+<td>It does not limit the API calls in any way.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="forcing-a-fetch-ignoring-the-rate-limiter">Forcing a fetch ignoring the rate limiter</h3>
+<p>If you need to force a fetch to the API ignoring the rate limiter, you should send a parameter to the <code>fetch</code> call the following way:</p>
+<pre><code class="language-kotlin">val result = personStore.fetch(RoomPersonStore.Key(&quot;1&quot;), forced = true)
+</code></pre>
+<h3 id="disabling-the-rate-limiter">Disabling the Rate Limiter</h3>
+<p>The Rate limiter is active by default, but you can disable it with the code:</p>
+<pre><code class="language-kotlin">StoreConfig.isRateLimiterEnabled = { // You can use a feature flag or a remote config here to return a Boolean }
+</code></pre>
+<p>If you want to disable it for a specific call, you can set <code>rateLimitPolicy = FetchAlways</code>.</p>
+<h2 id="throttling">Throttling</h2>
+<p>You can enable throttling of service calls in case of continuously failing requests. Sometimes backends and servers are not able to process the requests fast enough, or they are down, or they experience temporary issues. In that case, the Store clients are able to wait some time before making the next call.
+It works the following way: If there are more than a configurable amount of errors in a row, the next service calls during a timeframe will result in an immediate local exception and they will not be executed.
+You can configure also a base timeframe until a next call is allowed. If the time has passed and there is another error this timeframe grows exponentially to avoid flooding the server with retries or repeated calls.</p>
+<blockquote>
+<p>The throttled requests are not retried automatically nor queued
+(yet), they result in a throttling error. You can retry them from the client
+code.</p>
+</blockquote>
+<h3 id="throttling-configuration">Throttling configuration</h3>
+<p>You can configure throttling setting <code>StoreConfig.throttlingConfiguration</code>.
+|Property  | Description  |
+|--|--|
+|errorCountThreshold  |  Amount of errors in a row since the throttling is activated. |
+|throttleInitialTimeout  | Duration of the throttling period in milliseconds. |
+|errorDurationThreshold  | The timeout period will grow exponentially if the API errors continue happening, until reaching this duration in milliseconds. |</p>
+<h3 id="disabling-throttling">Disabling throttling</h3>
+<p>The throttling is active by default, but you can disable it for debugging purposes this way:</p>
+<pre><code class="language-kotlin">StoreConfig.isThrottlingEnabled = { // You can use a feature flag or a remote config here to return a Boolean }
+</code></pre>
+<h3 id="showing-api-errors-on-the-screen">Showing API errors on the screen</h3>
+<p><code>ThrottlingFetcherController</code> exposes a <code>throttlingState</code> state flow you can use in the UI. The state includes <code>isThrottling</code> boolean indicating if throttling is currently active, and <code>timestampUntilNextCall</code> the unix timestamp to the date-time in which you can resume making calls or retry them.</p>
+<pre><code class="language-kotlin">// In the ViewModel
+val throttlingState = StoreConfig.throttlingController.throttlingState
+...
+// In the View / Compose
+val throttlingState = viewModel.throttlingState.collectAsState()
+// You can use then throttlingState.value.isThrottling to know it is throttling.
+</code></pre>
+<h2 id="crud-stores">CRUD Stores</h2>
+<p>A CrudStore is a Store which also implements create, update and delete methods.
+These operations are reflected in API calls (POST, PUT and DELETE REST calls for example), and the new/updated/deleted entities are also created/updated/deleted from the cache when the API call succeeds.</p>
+<p>Example of definition:</p>
+<pre><code class="language-kotlin">data class PostKey(val id: Int)
+
+fun providePostsCRUDStore(): SimpleCrudStoreImpl&lt;PostKey, Post&gt; {
+    return SimpleCrudStoreBuilder.from(
+        fetcher = LimitedCrudFetcher.of(
+            fetch = { post -&gt; FetcherResult.Data(provideService().getPost(post.id)) },
+            create = { key, post -&gt; FetcherResult.Data(provideService().createPost(post)) },
+            update = { key, post -&gt; FetcherResult.Data(provideService().updatePost(key.id, post)) },
+            delete = { key, post -&gt; provideService().deletePost(key.id); true },
+        ),
+        cache = SampleApplication.roomDb.postCache(),
+        keyBuilder = { entity -&gt; PostKey(entity.id) }
+    ).build() as SimpleCrudStoreImpl
+}
+
+private fun provideService() = RetrofitManager.createService(JsonPlaceholderService::class.java)
+
+@Dao
+abstract class PostCache: RoomCache&lt;PostKey, Post&gt;(&quot;posts&quot;, SampleApplication.roomDb) {
+    override fun query(key: PostKey): String = &quot;id = ${key.id}&quot;
+}
+</code></pre>
+<p>Some details:</p>
+<ul>
+<li><code>PostKey</code> is the key used to identify each request, in this example
+  the id is used to distinguish between different entities.</li>
+<li><code>providePostsCRUDStore</code> creates the CRUD Store, we provide one method for each CRUD operation: <code>create</code>, <code>update</code>, <code>delete</code>, and <code>fetch</code>. We also need to provide a <code>keyBuilder</code> function used to generate a new key for the new stored data.</li>
+<li>The cache in this case is a Room Dao with a query using the key provided.</li>
+</ul>
+<p>The usage is simple:</p>
+<pre><code class="language-kotlin">private val postsStore = providePostsCRUDStore()
+//...
+fun create() {
+    viewModelScope.launch {
+    postsStore.create(PostKey(id = 1), Post(title = &quot;Title&quot;, body = &quot;Body&quot;, userId = 1))
+        uiState.value = &quot;Created&quot; // Here you can show a success message
+  }
+}
+</code></pre>
+<p>And similar for <code>update</code> and <code>delete</code>. The cache is updated as soon the response is received.
+In general this CRUD requests assumes an API expecting POST and PUT operations which returns the created/updated object with the generated/edited id as a result.</p>
+<h3 id="error-handling_1">Error handling</h3>
+<p>The CRUD operations returns a <code>StoreResponse</code> object which can be an <code>Error</code>. None of the operations are throwing exceptions.</p>
+<pre><code class="language-kotlin">val response = postsStore.create(PostKey(id = 1), Post(title = &quot;Title&quot;, body = &quot;Body&quot;, userId = 1))
+when (response) {
+    is StoreResponse.Data -&gt; uiState.value = &quot;Created&quot;
+    is StoreResponse.Error -&gt; uiState.value = &quot;Error in create&quot;
+}
+</code></pre>
+<h2 id="roadmap">Roadmap</h2>
+<ul>
+<li>Publish the library</li>
+<li>Add an optional memory cache</li>
+<li>Investigate automatic retries on error</li>
+</ul>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Hello" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Hello
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+    
+  </body>
+</html>
