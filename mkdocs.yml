@@ -1,6 +1,0 @@
-site_name: pablodiste
-theme:
-  name: material
-nav:
-  - Home: index.md
-  - DataStore: datastore.md
