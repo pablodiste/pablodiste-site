@@ -833,9 +833,11 @@
 <p><a href="https://search.maven.org/search?q=g:dev.pablodiste.datastore"><img alt="GitHub release" src="https://img.shields.io/maven-central/v/dev.pablodiste.datastore/datastore" /></a></p>
 <p>DataStore is an implementation of the Repository pattern in Android. This library allows async loading and caching data from different sources (API, databases).</p>
 <h2 id="basics">Basics</h2>
-<p>A Store is composed by two main objects, a fetcher, and a cache.
-* <strong>Fetcher</strong>: In charge of calling the API and getting the result in the form of a <code>FetcherResult&lt;Entity&gt;</code>.
-* <strong>Cache</strong>: In charge of storing the result locally and making queries, usually backed by a local database.</p>
+<p>A Store is composed by two main objects, a fetcher, and a cache.</p>
+<ul>
+<li><strong>Fetcher</strong>: In charge of calling the API and getting the result in the form of a <code>FetcherResult&lt;Entity&gt;</code>.</li>
+<li><strong>Cache</strong>: In charge of storing the result locally and making queries, usually backed by a local database.</li>
+</ul>
 <h2 id="preview-usage">Preview Usage</h2>
 <p>After you have configured your Store, you will be able to do from your ViewModel:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">peopleStore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PeopleStore</span><span class="p">(</span><span class="n">viewModelScope</span><span class="p">)</span><span class="w"></span>
