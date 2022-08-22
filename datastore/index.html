@@ -263,8 +263,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#preview-usage" class="md-nav__link">
-    Preview Usage
+  <a href="#example-of-usage" class="md-nav__link">
+    Example of Usage
   </a>
   
 </li>
@@ -558,8 +558,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#preview-usage" class="md-nav__link">
-    Preview Usage
+  <a href="#example-of-usage" class="md-nav__link">
+    Example of Usage
   </a>
   
 </li>
@@ -833,28 +833,36 @@
 <p><a href="https://search.maven.org/search?q=g:dev.pablodiste.datastore"><img alt="GitHub release" src="https://img.shields.io/maven-central/v/dev.pablodiste.datastore/datastore" /></a></p>
 <p>DataStore is an implementation of the Repository pattern in Android. This library allows async loading and caching data from different sources (API, databases).</p>
 <h2 id="basics">Basics</h2>
-<p>A Store is composed by two main objects, a fetcher, and a cache.</p>
+<p>A Store is composed of two main objects, a fetcher, and a cache.</p>
 <ul>
 <li><strong>Fetcher</strong>: In charge of calling the API and getting the result in the form of a <code>FetcherResult&lt;Entity&gt;</code>.</li>
 <li><strong>Cache</strong>: In charge of storing the result locally and making queries, usually backed by a local database.</li>
 </ul>
-<h2 id="preview-usage">Preview Usage</h2>
-<p>After you have configured your Store, you will be able to do from your ViewModel:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">peopleStore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PeopleStore</span><span class="p">(</span><span class="n">viewModelScope</span><span class="p">)</span><span class="w"></span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">viewModelScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">peopleStore</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">refresh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">).</span><span class="na">collect</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello </span><span class="si">${</span><span class="n">result</span><span class="p">.</span><span class="na">value</span><span class="p">.</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="n">uiState</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="na">value</span><span class="w"></span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span><span class="w"></span>
+<h2 id="example-of-usage">Example of Usage</h2>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Repository code</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">providePeopleStore</span><span class="p">():</span><span class="w"> </span><span class="n">Store</span><span class="o">&lt;</span><span class="n">NoKey</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">People</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">SimpleStoreBuilder</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="n">fetcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LimitedFetcher</span><span class="p">.</span><span class="na">of</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">FetcherResult</span><span class="p">.</span><span class="na">Data</span><span class="p">(</span><span class="n">provideStarWarsService</span><span class="p">().</span><span class="na">getPeople</span><span class="p">().</span><span class="na">results</span><span class="p">)</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="n">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SampleApplication</span><span class="p">.</span><span class="na">roomDb</span><span class="p">.</span><span class="na">peopleCache</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">).</span><span class="na">build</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1">// In the Viewmodel</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kd">val</span><span class="w"> </span><span class="nv">peopleStore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">providePeopleStore</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">viewModelScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">peopleStore</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">refresh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">).</span><span class="na">collect</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello </span><span class="si">${</span><span class="n">result</span><span class="p">.</span><span class="na">value</span><span class="p">.</span><span class="na">name</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="n">uiState</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="na">value</span><span class="w"></span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 This example will fetch a People list from an API, then store it in a local database and listen reactively for updates on that list.</p>
+<p>Please see the documentation below about how to provide a fetcher and a cache using your preferred libraries.</p>
 <h2 id="sample-application">Sample Application</h2>
-<p>You can see the features working cloning this repository and running the <code>app</code> module.</p>
+<p>You can see the features working by cloning this repository and running the <code>app</code> module.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Handles caching of fetched data automatically.</li>
-<li>Allows listening to changes on the cache and making queries to single values.</li>
+<li>Allows listening to changes on the cache and making queries.</li>
 <li>It is built on coroutines.</li>
 <li>Allows the integration of different fetcher sources and libraries.</li>
 <li>Includes support for caches based on Room and Realm libraries but you can plug in other ones too.</li>
@@ -862,7 +870,7 @@ This example will fetch a People list from an API, then store it in a local data
 <li>Allows per-request cache expiration configuration.</li>
 <li>Implements a way to limit multiple repeated calls to the same API.</li>
 <li>Implements throttling on API errors. You can be notified if throttling is activated and show proper error messaging in the UI.</li>
-<li>Implements CRUDStores with a very simple interface to make create, read, update and delete operations over APIs and reflect the state in the local cache.</li>
+<li>Implements CRUDStores, a very simple interface to make Create, Read, Update and Delete operations over APIs and reflect the state updates automatically in the cache.</li>
 </ul>
 <h2 id="using-datastore">Using DataStore</h2>
 <h3 id="installation">Installation</h3>
@@ -876,7 +884,7 @@ This example will fetch a People list from an API, then store it in a local data
 </code></pre></div>
 <h3 id="1-defining-your-data-classes">1. Defining your data classes</h3>
 <p>The Store will be in charge of fetching data from the API and caching the data on a local repository (database). You can define data classes for holding the information parsed from the API, for example with GSon or Moshi libraries, and also you can define data classes for the data which is going to be stored in the database.</p>
-<p>You can either define different data classes for API and Database or use the same definition, depending of your needs. In the following examples we are going to use the same entity class for simplicity.</p>
+<p>You can either define different data classes for API and Database or use the same definition, depending on your needs. In the following examples we are going to use the same entity class for simplicity.</p>
 <p>Here is a Room entity.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Entity</span><span class="p">(</span><span class="n">tableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;people&quot;</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">data</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">People</span><span class="p">(</span><span class="w"></span>
@@ -943,8 +951,8 @@ You can also use other libraries to fetch data, you just need to make the call i
 <h4 id="using-room">Using Room</h4>
 <p>We have provided base DAOs for using with Room:</p>
 <ul>
-<li><code>RoomListCache</code> and <code>SimpleRoomListCache</code>, stores a list of entities.</li>
-<li><code>RoomCache</code> and <code>SimpleRoomCache</code> stores individual objects.</li>
+<li><code>RoomListCache</code> and <code>SimpleRoomListCache</code>, store a list of entities.</li>
+<li><code>RoomCache</code> and <code>SimpleRoomCache</code> store individual objects.</li>
 </ul>
 <p>For example if we want to store a list of People we can do:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@Dao</span><span class="w"></span>
@@ -997,26 +1005,26 @@ Optionally you can provide a <code>storeInRealm</code> which implements a custom
 <h3 id="6-using-the-store">6. Using the Store</h3>
 <p>These are the main methods for using the Store we just created:</p>
 <h4 id="instancing-your-store">Instancing your Store</h4>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">peopleStore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PeopleStore</span><span class="p">()</span><span class="w"> </span><span class="c1">// or injected using DI</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">peopleStore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PeopleStore</span><span class="p">()</span><span class="w"> </span><span class="c1">// or injected using DI</span><span class="w"></span>
 </code></pre></div>
-All operation with the store are usually tied to a scope, we can use the viewModelScope for example to launch a coroutine that listens for the incoming data.
+<p>All operations using the store are usually tied to a scope, we can use the viewModelScope for example to launch a coroutine that listens for the incoming data.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">viewModelScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">personStore</span><span class="p">.</span><span class="na">fetch</span><span class="p">(</span><span class="n">RealmPersonStore</span><span class="p">.</span><span class="na">Key</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">))</span><span class="w"></span>
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
-With some databases like Realm we should close the opened resources when we are done with using the data. We have provided some extension functions for closing automatically the Realm instances.
+<p>With some databases like Realm we should close the opened resources when we are done with using the data. We have provided some extension functions for closing the Realm instances automatically.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">viewModelScope</span><span class="p">.</span><span class="na">launch</span><span class="p">(</span><span class="n">personStore</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">personStore</span><span class="p">.</span><span class="na">fetch</span><span class="p">(</span><span class="n">RealmPersonStore</span><span class="p">.</span><span class="na">Key</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">))</span><span class="w"></span>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
-Here in the launch we provide the store instance and it will close itself once the coroutine job is cancelled (finished).
-As an alternative, we have an additional method to close many stores.
+<p>Here in the launch we provide the store instance and it will close itself once the coroutine job is canceled (finished).
+As an alternative, we have an additional method to close many stores.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">viewModelScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="p">...</span><span class="w"> </span><span class="p">(</span><span class="n">use</span><span class="w"> </span><span class="n">peopleStore</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">planetStore</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="p">}.</span><span class="na">autoClose</span><span class="p">(</span><span class="n">peopleStore</span><span class="p">,</span><span class="w"> </span><span class="n">planetStore</span><span class="p">)</span><span class="w"></span>
-</code></pre></div></p>
+</code></pre></div>
 <h4 id="responses">Responses</h4>
 <p>All responses coming from the store are based on StoreResponse classes. The subclasses are:</p>
 <table>
@@ -1033,7 +1041,7 @@ As an alternative, we have an additional method to close many stores.
 </tr>
 <tr>
 <td>Error</td>
-<td>It is returned when there was a network or parsing error, includes the exception that generated it. Please note Store will not throw the exception</td>
+<td>It is returned when there was a network or parsing error. It includes the exception that generated it. Please note Store will not throw the exception</td>
 </tr>
 <tr>
 <td>NoData</td>
@@ -1044,7 +1052,7 @@ As an alternative, we have an additional method to close many stores.
 <h4 id="stream-data">Stream data</h4>
 <p>The <code>stream</code> method does the following:
 1. Checks the cache looking for any cached data, if there is any, it is emitted immediately.
-2. If the <code>refresh</code> parameter is <code>true</code>, if calls the Fetcher for new data from the API and caches them. Then it will emit the new data. If cached data existed before the fetch, you will receive <strong>two emissions</strong>: one for the previously cached data and another one for the new data after the fetch has completed.
+2. If the <code>refresh</code> parameter is <code>true</code>, it calls the Fetcher for new data from the API and caches them. Then it will emit the new data. If cached data existed before the fetch, you will receive <strong>two emissions</strong>: one for the previously cached data and another one for the new data after the fetch has completed.
 3. If initially there was no data on the cache, it performs the API call. Then its result gets stored in the cache and emitted to the client.
 4. Stream keeps listening and emitting any update in the cached data.</p>
 <p>For example, from your ViewModel
@@ -1201,14 +1209,14 @@ If you want to disable it for a specific call, you can set <code>rateLimitPolicy
 <h3 id="throttling">Throttling</h3>
 <p>You can enable throttling of service calls in case of continuously failing requests. Sometimes backends and servers are not able to process the requests fast enough, or they are down, or they experience temporary issues. In that case, the Store clients are able to wait some time before making the next call.
 It works the following way: If there are more than a configurable amount of errors in a row, the next service calls during a timeframe will result in an immediate local exception and they will not be executed.
-You can configure also a base timeframe until a next call is allowed. If the time has passed and there is another error this timeframe grows exponentially to avoid flooding the server with retries or repeated calls.</p>
+You can also configure a base timeframe until a next call is allowed. If the time has passed and there is another error this timeframe grows exponentially to avoid flooding the server with retries or repeated calls.</p>
 <blockquote>
 <p>The throttled requests are not retried automatically nor queued
 (yet), they result in a throttling error. You can retry them from the client
 code.</p>
 </blockquote>
 <h4 id="throttling-configuration">Throttling configuration</h4>
-<p>You can configure throttling setting <code>StoreConfig.throttlingConfiguration</code>.
+<p>You can configure the throttling setting <code>StoreConfig.throttlingConfiguration</code>.
 |Property  | Description  |
 |--|--|
 |errorCountThreshold  |  Amount of errors in a row since the throttling is activated. |
@@ -1225,7 +1233,7 @@ code.</p>
 <a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="p">...</span><span class="w"></span>
 <a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="c1">// In the View / Compose</span><span class="w"></span>
 <a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="kd">val</span><span class="w"> </span><span class="nv">throttlingState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">viewModel</span><span class="p">.</span><span class="na">throttlingState</span><span class="p">.</span><span class="na">collectAsState</span><span class="p">()</span><span class="w"></span>
-<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="c1">// You can use then throttlingState.value.isThrottling to know it is throttling.</span><span class="w"></span>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="c1">// Then you can use throttlingState.value.isThrottling to know if it is throttling.</span><span class="w"></span>
 </code></pre></div>
 <h3 id="crud-stores">CRUD Stores</h3>
 <p>A CrudStore is a Store which also implements create, update and delete methods.
@@ -1255,8 +1263,7 @@ These operations are reflected in API calls (POST, PUT and DELETE REST calls for
 </code></pre></div>
 Some details:</p>
 <ul>
-<li><code>PostKey</code> is the key used to identify each request, in this example
-  the id is used to distinguish between different entities.</li>
+<li><code>PostKey</code> is the key used to identify each request, in this example the id is used to distinguish between different entities.</li>
 <li><code>providePostsCRUDStore</code> creates the CRUD Store, we provide one method for each CRUD operation: <code>create</code>, <code>update</code>, <code>delete</code>, and <code>fetch</code>. We also need to provide a <code>keyBuilder</code> function used to generate a new key for the new stored data.</li>
 <li>The cache in this case is a Room Dao with a query using the key provided.</li>
 </ul>
@@ -1264,10 +1271,10 @@ Some details:</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">postsStore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">providePostsCRUDStore</span><span class="p">()</span><span class="w"></span>
 <a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="c1">//...</span><span class="w"></span>
 <a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">create</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">    </span><span class="n">viewModelScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">        </span><span class="n">postsStore</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">PostKey</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">Post</span><span class="p">(</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Title&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Body&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">userId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">))</span><span class="w"></span>
-<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">        </span><span class="n">uiState</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Created&quot;</span><span class="w"> </span><span class="c1">// Here you can show a success message</span><span class="w"></span>
-<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">  </span><span class="n">viewModelScope</span><span class="p">.</span><span class="na">launch</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">    </span><span class="n">postsStore</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">PostKey</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">Post</span><span class="p">(</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Title&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Body&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">userId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">))</span><span class="w"></span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">    </span><span class="n">uiState</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Created&quot;</span><span class="w"> </span><span class="c1">// Here you can show a success message</span><span class="w"></span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 And similar for <code>update</code> and <code>delete</code>. The cache is updated as soon the response is received.
@@ -1276,8 +1283,8 @@ In general this CRUD requests assumes an API expecting POST and PUT operations w
 <p>The CRUD operations returns a <code>StoreResponse</code> object which can be an <code>Error</code>. None of the operations are throwing exceptions.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">postsStore</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">PostKey</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">Post</span><span class="p">(</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Title&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Body&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">userId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">))</span><span class="w"></span>
 <a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">    </span><span class="k">is</span><span class="w"> </span><span class="n">StoreResponse</span><span class="p">.</span><span class="na">Data</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">uiState</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Created&quot;</span><span class="w"></span>
-<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">    </span><span class="k">is</span><span class="w"> </span><span class="n">StoreResponse</span><span class="p">.</span><span class="na">Error</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">uiState</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Error in create&quot;</span><span class="w"></span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">  </span><span class="k">is</span><span class="w"> </span><span class="n">StoreResponse</span><span class="p">.</span><span class="na">Data</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">uiState</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Created&quot;</span><span class="w"></span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">  </span><span class="k">is</span><span class="w"> </span><span class="n">StoreResponse</span><span class="p">.</span><span class="na">Error</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">uiState</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Error in create&quot;</span><span class="w"></span>
 <a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <h2 id="contributions">Contributions</h2>
