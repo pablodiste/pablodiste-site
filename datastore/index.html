@@ -1055,13 +1055,13 @@ This example will fetch a People list from an API, then store it in a local data
 <h2 id="using-datastore">Using DataStore</h2>
 <h3 id="installation">Installation</h3>
 <p>Include the library in the dependencies section of your module configuration file. For example using Kotlin:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;dev.pablodiste.datastore:datastore:0.1.7&quot;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;dev.pablodiste.datastore:datastore:0.1.9&quot;</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <p>Plugins for integrating DataStore with common libraries, you only need to include the ones you need</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;dev.pablodiste.datastore:datastore-room:0.1.7&quot;</span><span class="p">)</span><span class="w"></span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;dev.pablodiste.datastore:datastore-realm:0.1.1&quot;</span><span class="p">)</span><span class="w"></span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;dev.pablodiste.datastore:datastore-retrofit:0.1.7&quot;</span><span class="p">)</span><span class="w"></span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;dev.pablodiste.datastore:datastore-ktor:0.1.7&quot;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;dev.pablodiste.datastore:datastore-room:0.1.8&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;dev.pablodiste.datastore:datastore-realm:0.1.2&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;dev.pablodiste.datastore:datastore-retrofit:0.1.8&quot;</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;dev.pablodiste.datastore:datastore-ktor:0.1.8&quot;</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <h3 id="1-defining-your-data-classes">1. Defining your data classes</h3>
 <p>The Store will be in charge of fetching data from the API and caching the data on a local repository (database). You can define data classes for holding the information parsed from the API, for example with GSon or Moshi libraries, and also you can define data classes for the data which is going to be stored in the database.</p>
@@ -1584,7 +1584,6 @@ Feel free to fork it and/or send a pull request in case you want to make fixes o
 Please create an issue in github so we can discuss the idea and collaborate.</p>
 <h2 id="roadmap">Roadmap</h2>
 <ul>
-<li>Loading state - example with pull to refresh</li>
 <li>Support of Pagination, integration with Pager3 or custom implementation.</li>
 <li>Data expiration, TTL, validators.</li>
 <li>SQLDelight examples and wrappers</li>
